@@ -1,0 +1,4 @@
+*.o
+/old_code
+make_regc
+
