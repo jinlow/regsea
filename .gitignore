@@ -1,4 +1,5 @@
 *.o
 /old_code
+/py_scratch
 make_regc
-
+/.vscode
