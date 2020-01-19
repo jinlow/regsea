@@ -1,18 +1,20 @@
 #ifndef MXDATA_HEADER
 #define MXDATA_HEADER
 
-// Main Matrix datatype
+// Main Mxdata datatype
 typedef struct
 {
     int rows;
     int cols;
     double **data;
-} Matrix;
+} Mxdata;
 
 // Use to initialize a matrix
-Matrix init_Matrix(int rows, int cols, double init_val);
+Mxdata init_Mxdata(int rows, int cols, double init_val);
+
+void free_Mxdata(Mxdata mt);
 
 // Display matrix and contents
-void print_Matrix(Matrix mt);
+void print_Mxdata(Mxdata mt);
 
 #endif // MXDATA_HEADER

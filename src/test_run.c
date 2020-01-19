@@ -4,7 +4,8 @@
 
 //int argc, char **argv
 int main() {
-    Matrix mat = init_Matrix(10, 3, 0);
-    print_Matrix(mat);
+    Mxdata mat = init_Mxdata(10, 3, 0);
+    print_Mxdata(mat);
+    free_Mxdata(mat);
     return 0;
 }

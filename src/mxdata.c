@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "mxdata.h"
 
-Matrix init_Matrix(int rows, int cols, double init_val) {
-    Matrix mt;
+Mxdata init_Mxdata(int rows, int cols, double init_val) {
+    Mxdata mt;
     mt.rows = rows;
     mt.cols = cols;
     mt.data = (double **)malloc(rows * sizeof(double *));
@@ -16,7 +16,14 @@ Matrix init_Matrix(int rows, int cols, double init_val) {
     return mt;
 }
 
-void print_Matrix(Matrix mt) {
+void free_Mxdata(Mxdata mt) {
+    for (int i = 0; i < mt.rows; ++i) {
+        free(mt.data[i]);
+    }
+    free(mt.data);
+}
+
+void print_Mxdata(Mxdata mt) {
     printf("Matrix has %i rows and %i cols \n", mt.rows, mt.cols);
     for (int i = 0; i < mt.rows; ++i) {
         for (int j = 0; j < mt.cols; ++j) {
