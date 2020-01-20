@@ -25,6 +25,7 @@ int main()
 
     mat.set_element(0, 0, 9.0);
     mat.print_Cmdata();
-    std::cout << mat.get_element(1, 1) << std::endl;
+    mat.transpose();
+    mat.print_Cmdata();
     return 0;
 }

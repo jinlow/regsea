@@ -47,6 +47,16 @@ void Cmdata::data_fill(std::vector<double> vd)
     data = vd;
 }
 
+void Cmdata::transpose()
+{
+    int temp_str = str1;
+    size_t temp_rs = rs;
+    str1 = str2;
+    rs = cs;
+    str2 = temp_str;
+    cs = temp_rs;
+}
+
 // Private Functions
 size_t Cmdata::get_idx(size_t i, size_t j)
 {

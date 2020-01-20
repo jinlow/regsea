@@ -15,6 +15,7 @@ public:
     double get_element(size_t i, size_t j);
     void set_element(size_t i, size_t j, double set_value);
     void data_fill(std::vector<double> vd);
+    void transpose();
 
 private:
     std::vector<double> data;
