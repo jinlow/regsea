@@ -1,6 +1,6 @@
-/*
- Creating a matrix of contigous arrays
-*/
+// Creating a matrix of contigous data
+// currently using c++ vector template.
+
 #include <vector>
 
 #ifndef CMDATA_HEADER
@@ -9,18 +9,20 @@
 class Cmdata
 {
 public:
-    Cmdata(int rows, int cols, double init_value);
-    int *shape();
+    Cmdata(size_t rows, size_t cols, double init_value);
+    size_t *shape();
     void print_Cmdata();
-    double get_element(int i, int j);
+    double get_element(size_t i, size_t j);
+    void set_element(size_t i, size_t j, double set_value);
     void data_fill(std::vector<double> vd);
 
 private:
     std::vector<double> data;
-    int rs;
-    int cs;
+    size_t rs;
+    size_t cs;
     int str1;
     int str2;
+    size_t get_idx(size_t i, size_t j);
 };
 
-#endif // MCDATA_HEADER
+#endif // CMDATA_HEADER

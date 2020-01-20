@@ -2,7 +2,7 @@
 #include <iostream>
 #include "cmdata.h"
 
-Cmdata::Cmdata(int rows, int cols, double init_value = 0)
+Cmdata::Cmdata(size_t rows, size_t cols, double init_value = 0)
 {
     int elem_len = rows * cols;
     rs = rows;
@@ -13,18 +13,20 @@ Cmdata::Cmdata(int rows, int cols, double init_value = 0)
     data = data_init;
 }
 
-int *Cmdata::shape()
+size_t *Cmdata::shape()
 {
-    static int sz_arr[2]{cs, rs};
+    static size_t sz_arr[2]{cs, rs};
     return sz_arr;
 }
 
-double Cmdata::get_element(int i, int j)
+double Cmdata::get_element(size_t i, size_t j)
 {
-    int idx;
-    idx = str2 * i;
-    idx = idx + (j * str1);
-    return data[idx];
+    return data[get_idx(i, j)];
+}
+
+void Cmdata::set_element(size_t i, size_t j, double set_value)
+{
+    data.at(get_idx(i, j)) = set_value;
 }
 
 void Cmdata::print_Cmdata()
@@ -41,10 +43,19 @@ void Cmdata::print_Cmdata()
 
 void Cmdata::data_fill(std::vector<double> vd)
 {
-    if (vd.size() != data.size())
-    {
-        NULL;
-        //throw input_data_wrong_size("vd.size() != data.size()")
-    }
+    assert(vd.size() == data.size());
     data = vd;
+}
+
+// Private Functions
+size_t Cmdata::get_idx(size_t i, size_t j)
+{
+    if (i >= rs || j >= cs)
+    {
+        throw std::range_error("Index out of bounds");
+    }
+    size_t idx;
+    idx = str2 * i;
+    idx = idx + (j * str1);
+    return idx;
 }

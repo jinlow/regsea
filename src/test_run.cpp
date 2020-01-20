@@ -9,7 +9,7 @@ int main()
     mat.print_Cmdata();
     mat.data_fill(fdt);
     mat.print_Cmdata();
-    int *size_arr = mat.shape();
+    size_t *size_arr = mat.shape();
     std::cout << "Rows: "
               << size_arr[0]
               << " Cols: "
@@ -22,4 +22,9 @@ int main()
     std::cout << "1, 1 element: "
               << mat.get_element(1, 1)
               << std::endl;
+
+    mat.set_element(0, 0, 9.0);
+    mat.print_Cmdata();
+    std::cout << mat.get_element(1, 1) << std::endl;
+    return 0;
 }
