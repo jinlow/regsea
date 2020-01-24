@@ -9,8 +9,7 @@ Cmdata::Cmdata(size_t rows, size_t cols, double init_value = 0)
     cs = cols;
     str1 = 1;
     str2 = cols;
-    std::vector<double> data_init(elem_len);
-    data = data_init;
+    data.assign(elem_len, 0.0);
 }
 
 size_t *Cmdata::shape()
@@ -19,7 +18,7 @@ size_t *Cmdata::shape()
     return sz_arr;
 }
 
-double Cmdata::get_element(size_t i, size_t j)
+double &Cmdata::get_element(size_t i, size_t j)
 {
     return data[get_idx(i, j)];
 }
@@ -41,10 +40,10 @@ void Cmdata::print_Cmdata()
     }
 }
 
-void Cmdata::data_fill(std::vector<double> vd)
+void Cmdata::data_fill(std::vector<double> &vd)
 {
     assert(vd.size() == data.size());
-    data = vd;
+    data.swap(vd);
 }
 
 void Cmdata::transpose()

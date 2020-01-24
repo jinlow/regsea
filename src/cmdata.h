@@ -5,16 +5,18 @@
 
 #ifndef CMDATA_HEADER
 #define CMDATA_HEADER
-
+/* Cmdata
+ * Two dimensional tabular data matrix class.
+ */
 class Cmdata
 {
 public:
     Cmdata(size_t rows, size_t cols, double init_value);
     size_t *shape();
     void print_Cmdata();
-    double get_element(size_t i, size_t j);
+    double &get_element(size_t i, size_t j);
     void set_element(size_t i, size_t j, double set_value);
-    void data_fill(std::vector<double> vd);
+    void data_fill(std::vector<double> &vd);
     void transpose();
 
 private:

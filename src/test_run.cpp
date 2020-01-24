@@ -4,7 +4,8 @@
 
 int main()
 {
-    std::vector<double> fdt = {1, 2, 3, 4, 5, 6, 7, 8};
+    std::vector<double> fdt = {1.1, 2.2, 3, 4, 5, 6, 7, 8};
+    std::cout << fdt.data() << std::endl;
     Cmdata mat(4, 2, 0);
     mat.print_Cmdata();
     mat.data_fill(fdt);
@@ -23,7 +24,8 @@ int main()
               << mat.get_element(1, 1)
               << std::endl;
 
-    mat.set_element(0, 0, 9.0);
+    // mat.set_element(0, 0, 9.0);
+    mat.get_element(0, 0) = 10;
     mat.print_Cmdata();
     mat.transpose();
     mat.print_Cmdata();
