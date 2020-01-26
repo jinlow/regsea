@@ -6,7 +6,7 @@ int main()
 {
     std::vector<double> fdt = {1.1, 2.2, 3, 4, 5, 6, 7, 8};
     std::cout << fdt.data() << std::endl;
-    Cmdata mat(4, 2, 0);
+    Cmdata mat(4, 2, 0.0);
     mat.print_Cmdata();
     mat.data_fill(fdt);
     mat.print_Cmdata();
@@ -29,5 +29,12 @@ int main()
     mat.print_Cmdata();
     mat.transpose();
     mat.print_Cmdata();
+
+    std::cout << "\n\n";
+    std::cout << "Trying Other Constructor" << std::endl;
+    std::vector<double> fdt2 = {8, 7, 6, 5, 4, 3, 2, 1};
+    Cmdata mat2(fdt2, 4, 2);
+    mat2.print_Cmdata();
+
     return 0;
 }

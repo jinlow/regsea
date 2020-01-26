@@ -12,6 +12,7 @@ class Cmdata
 {
 public:
     Cmdata(size_t rows, size_t cols, double init_value);
+    Cmdata(std::vector<double> &init_vector, size_t rows, size_t cols);
     size_t *shape();
     void print_Cmdata();
     double &get_element(size_t i, size_t j);

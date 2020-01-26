@@ -2,14 +2,24 @@
 #include <iostream>
 #include "cmdata.h"
 
-Cmdata::Cmdata(size_t rows, size_t cols, double init_value = 0)
+Cmdata::Cmdata(size_t rows, size_t cols, double init_value)
 {
     int elem_len = rows * cols;
     rs = rows;
     cs = cols;
     str1 = 1;
     str2 = cols;
-    data.assign(elem_len, 0.0);
+    data.assign(elem_len, init_value);
+}
+
+Cmdata::Cmdata(std::vector<double> &init_vector, size_t rows, size_t cols)
+{
+    int elem_len = rows * cols;
+    rs = rows;
+    cs = cols;
+    str1 = 1;
+    str2 = cols;
+    data.swap(init_vector);
 }
 
 size_t *Cmdata::shape()
