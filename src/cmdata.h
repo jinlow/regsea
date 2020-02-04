@@ -15,13 +15,21 @@ public:
     Cmdata(std::vector<double> &init_vector, size_t rows, size_t cols);
     size_t *shape();
     void print_Cmdata();
+
+    // House Keeping
+
+    // Basic Data handling
     double &get_element(size_t i, size_t j);
     void set_element(size_t i, size_t j, double set_value);
     void data_fill(std::vector<double> &vd);
     void transpose();
 
+    // Mathmatical Operators
+    Cmdata operator-();
+
 private:
-    std::vector<double> data;
+    std::vector<double>
+        data;
     size_t rs;
     size_t cs;
     int str1;

@@ -35,6 +35,8 @@ int main()
     std::vector<double> fdt2 = {8, 7, 6, 5, 4, 3, 2, 1};
     Cmdata mat2(fdt2, 4, 2);
     mat2.print_Cmdata();
+    mat2 = -mat2;
+    mat2.print_Cmdata();
 
     return 0;
 }

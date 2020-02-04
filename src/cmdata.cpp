@@ -66,6 +66,17 @@ void Cmdata::transpose()
     cs = temp_rs;
 }
 
+// Mathmatical Operators
+Cmdata Cmdata::operator-()
+{
+    Cmdata n_mdata(data, rs, cs);
+    for (int i = 0; i < n_mdata.data.size(); ++i)
+    {
+        n_mdata.data[i] *= -1;
+    }
+    return n_mdata;
+}
+
 // Private Functions
 size_t Cmdata::get_idx(size_t i, size_t j)
 {
