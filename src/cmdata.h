@@ -1,13 +1,13 @@
 // Creating a matrix of contigous data
 // currently using c++ vector template.
-
-#include <vector>
-
 #ifndef CMDATA_HEADER
 #define CMDATA_HEADER
 /* Cmdata
  * Two dimensional tabular data matrix class.
  */
+
+#include <vector>
+
 class Cmdata
 {
 public:

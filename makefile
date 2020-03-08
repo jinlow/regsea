@@ -13,3 +13,7 @@ OBJ = $(patsubst %,$(SRC)/%,$(_OBJ))
 
 make_regc: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
+
+.PHONY: clean
+clean:
+	rm -f $(_OBJ) make_regc
