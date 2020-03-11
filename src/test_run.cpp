@@ -38,5 +38,12 @@ int main()
     mat2 = -mat2;
     mat2.print_Cmdata();
 
+    std::cout << "Trying the slice" << std::endl;
+    Cmdata dat_slice = mat2.mat_slice(0, 1, 0, 1);
+
+    mat2.print_data_ref();
+    dat_slice.print_Cmdata();
+    dat_slice.print_data_ref();
+
     return 0;
 }

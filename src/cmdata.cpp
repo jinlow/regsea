@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include "cmdata.h"
 
@@ -26,6 +25,11 @@ size_t *Cmdata::shape()
 {
     static size_t sz_arr[2]{cs, rs};
     return sz_arr;
+}
+
+void Cmdata::print_data_ref()
+{
+    std::cout << data.data() << std::endl;
 }
 
 double &Cmdata::get_element(size_t i, size_t j)
@@ -64,6 +68,22 @@ void Cmdata::transpose()
     rs = cs;
     str2 = temp_str;
     cs = temp_rs;
+}
+
+Cmdata Cmdata::mat_slice(size_t f_row, size_t l_row, size_t f_col, size_t l_col)
+{
+    size_t n_rows = (l_row - f_row) + 1;
+    size_t n_cols = (l_col - f_col) + 1;
+    std::vector<double> vals;
+    //vals.reserve((n_rows * n_cols));
+    for (auto i = f_row; i <= l_row; ++i)
+    {
+        for (auto j = f_col; j <= l_col; ++j)
+        {
+            vals.push_back(data[get_idx(i, j)]);
+        }
+    }
+    return Cmdata(vals, n_rows, n_cols);
 }
 
 // Mathmatical Operators
