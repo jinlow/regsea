@@ -1,4 +1,3 @@
-#include <iostream>
 #include "cmdata.h"
 
 Cmdata::Cmdata(size_t rows, size_t cols, double init_value)

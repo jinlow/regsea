@@ -7,6 +7,7 @@
  */
 
 #include <vector>
+#include <iostream>
 
 class Cmdata
 {
