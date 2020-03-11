@@ -16,7 +16,7 @@ public:
 
     // Data info
     size_t *shape();
-    void print_Cmdata();
+    void print_Cmdata(bool info = true);
     void print_data_ref();
 
     // Basic Data handling

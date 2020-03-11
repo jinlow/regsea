@@ -10,12 +10,12 @@ int main()
     mat.print_Cmdata();
     mat.data_fill(fdt);
     mat.print_Cmdata();
-    size_t *size_arr = mat.shape();
-    std::cout << "Rows: "
-              << size_arr[0]
-              << " Cols: "
-              << size_arr[1]
-              << std::endl;
+    // size_t *size_arr = mat.shape();
+    // std::cout << "Rows: "
+    //           << size_arr[0]
+    //           << " Cols: "
+    //           << size_arr[1]
+    //           << std::endl;
     std::cout
         << "0, 0 element: "
         << mat.get_element(0, 0)
@@ -32,8 +32,9 @@ int main()
 
     std::cout << "\n\n";
     std::cout << "Trying Other Constructor" << std::endl;
-    std::vector<double> fdt2 = {8, 7, 6, 5, 4, 3, 2, 1};
-    Cmdata mat2(fdt2, 4, 2);
+    std::vector<double> fdt2 = {8, 7, 6, 5, 4, 3, 2, 1,
+                                8, 7, 6, 5, 4, 3, 2, 1};
+    Cmdata mat2(fdt2, 4, 4);
     mat2.print_Cmdata();
     mat2 = -mat2;
     mat2.print_Cmdata();
@@ -42,8 +43,11 @@ int main()
     Cmdata dat_slice = mat2.mat_slice(0, 1, 0, 1);
 
     mat2.print_data_ref();
-    dat_slice.print_Cmdata();
     dat_slice.print_data_ref();
+    dat_slice.print_Cmdata();
+
+    Cmdata dat_slice2 = mat2.mat_slice(1, 2, 1, 2);
+    dat_slice2.print_Cmdata();
 
     return 0;
 }
