@@ -7,8 +7,6 @@
  */
 
 #include <vector>
-#include <iostream>
-#include "assert.h"
 
 class Cmdata
 {

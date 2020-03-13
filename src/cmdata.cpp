@@ -1,4 +1,6 @@
 #include "cmdata.h"
+#include <iostream>
+#include "assert.h"
 
 Cmdata::Cmdata(size_t rows, size_t cols, double init_value)
 {
